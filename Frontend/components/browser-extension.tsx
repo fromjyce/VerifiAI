@@ -1,8 +1,17 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Chrome, ChromeIcon as Firefox, Shield, Globe } from "lucide-react"
 
 export function BrowserExtension() {
+  const handleDownload = (browser: string) => {
+    const link = document.createElement('a');
+    link.href = `/extensions/${browser}-extension.zip`;
+    link.download = `${browser}-extension.zip`;
+    link.click();
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -38,11 +47,11 @@ export function BrowserExtension() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <Button className="w-full">
+          <Button className="w-full" onClick={() => handleDownload('chrome')}>
             <Chrome className="h-4 w-4 mr-2" />
             Chrome
           </Button>
-          <Button className="w-full">
+          <Button className="w-full" onClick={() => handleDownload('firefox')}>
             <Firefox className="h-4 w-4 mr-2" />
             Firefox
           </Button>
