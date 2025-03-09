@@ -29,15 +29,24 @@ export default function VerifyPage() {
       }
     }
 
-    // Otherwise, simulate API call to verify the claim
-    const timer = setTimeout(() => {
-      // Mock verification result
-      const result = generateMockVerificationResult(claim)
-      setVerificationData(result)
-      setIsProcessing(false)
-    }, 3000) // Simulate 3 seconds of processing
+    // Call the backend API to verify the claim
+    fetch('http://localhost:3001/verify-claim', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ claim }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setVerificationData(data);
+        setIsProcessing(false);
+      })
+      .catch((error) => {
+        console.error('Error verifying claim:', error);
+        setIsProcessing(false);
+      });
 
-    return () => clearTimeout(timer)
   }, [claim, claimId])
 
   if (!claim) {
