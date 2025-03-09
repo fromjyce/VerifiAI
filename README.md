@@ -6,9 +6,13 @@ VerifiAI is an advanced AI-driven fact-checking system that leverages multiple l
 
 ## Key Features
 - ✅ **Improved Accuracy** in detecting AI-generated misinformation (**LLM + RAG + Neo4j**)
+
 - ✅ **Real-Time Fact-Checking** with an average response time of **<1.5 sec**
+
 - ✅ **Tamper-proof Verification** via **Blockchain Integration**
+
 - ✅ **Scalable API** processing **millions of claims/min**
+
 - ✅ **Seamless Frontend** (**Next.js, Browser Extensions, Chatbots**)
 
 ---
@@ -53,10 +57,15 @@ The **Trust Score** is computed using an algorithm that evaluates:
 
 ### 4. Results & Explanation
 VerifiAI provides **detailed fact-checking results**, including:
+
 ✅ **Final Verdict**: True, False, Partially True, or Unverifiable
+
 📊 **Trust Score**: A numerical representation of confidence level
+
 📑 **Supporting Evidence**: Multiple sources backing the claim
+
 🔍 **Detailed Explanation**: Step-by-step breakdown of verification
+
 🔗 **Source Links**: Direct references for further research
 
 ---
