@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217 91% 30%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 30 100% 60%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 30 100% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 30%;
+    --radius: 0.5rem;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 30 100% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 30 100% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 217 91% 60%;
+    --success: 142 76% 45%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.scanning-line {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, hsl(var(--secondary)), transparent);
+  animation: scanning 2s ease-in-out infinite;
+}
+
+@keyframes scanning {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.trust-score-meter {
+  position: relative;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.trust-score-meter::before {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: hsl(var(--background));
+  z-index: 2;
+}
+
+.trust-score-value {
+  position: relative;
+  z-index: 3;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.trust-score-label {
+  position: relative;
+  z-index: 3;
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+}
+
+.trust-score-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: height 1s ease-out;
+  z-index: 1;
+}
+
+.chatbot-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.chatbot-message {
+  max-width: 80%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.chatbot-message.user {
+  margin-left: auto;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-top-right-radius: 0;
+}
+
+.chatbot-message.bot {
+  margin-right: auto;
+  background-color: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  border-top-left-radius: 0;
+}
+
