@@ -1,13 +1,12 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Info, Search, Upload, Mic, X } from "lucide-react"
+import { Search, Upload, Mic, Info, X } from "lucide-react"
 
 export function ClaimForm() {
   const [claim, setClaim] = useState("")
@@ -59,6 +58,7 @@ export function ClaimForm() {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardContent className="pt-6">
+        {/* ✅ Added Warning Banner */}
         {showWarning && (
           <div className="mb-4 bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-sm flex items-start gap-3">
             <Info className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
@@ -117,4 +117,3 @@ export function ClaimForm() {
     </Card>
   )
 }
-
