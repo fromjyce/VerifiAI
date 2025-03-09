@@ -30,12 +30,16 @@ export function Navbar() {
         <div className="ml-auto flex items-center gap-4">
           <div className="hidden md:flex gap-4">
             <Button variant="outline" size="sm" className="gap-1.5">
-              <Download className="h-4 w-4" />
-              <span>Extension</span>
+              <Link href="#extension" className="flex items-center gap-1.5">
+                <Download className="h-4 w-4" />
+                <span>Extension</span>
+              </Link>
             </Button>
             <Button variant="outline" size="sm" className="gap-1.5">
-              <Code className="h-4 w-4" />
-              <span>API</span>
+              <Link href="#extension" className="flex items-center gap-1.5">
+                <Code className="h-4 w-4" />
+                <span>API</span>
+              </Link>
             </Button>
           </div>
           <ModeToggle />
