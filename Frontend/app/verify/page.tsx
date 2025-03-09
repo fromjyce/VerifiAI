@@ -15,6 +15,11 @@ export default function VerifyPage() {
 
   const [isProcessing, setIsProcessing] = useState(true)
   const [verificationData, setVerificationData] = useState<VerificationResult | null>(null)
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   useEffect(() => {
     if (!claim) return
@@ -48,6 +53,10 @@ export default function VerifyPage() {
       });
 
   }, [claim, claimId])
+
+  if (!isClient) {
+    return null
+  }
 
   if (!claim) {
     return (
