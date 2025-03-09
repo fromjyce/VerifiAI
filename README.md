@@ -127,7 +127,10 @@ http://localhost:3000
 ## Demo
 
 Watch the Demo Video:
-[![Watch the Demo](https://img.youtube.com/vi/bmbKE0b6Wgw/3.jpg)](https://youtu.be/bmbKE0b6Wgw)  
+
+<a href="https://youtu.be/bmbKE0b6Wgw" target="_blank">
+  <img src="https://img.youtube.com/vi/bmbKE0b6Wgw/1.jpg" alt="Watch the Demo" style="width:100%; max-width:600px; height:350px; object-fit:cover; border-radius:10px;">
+</a>
 
 ---
 
