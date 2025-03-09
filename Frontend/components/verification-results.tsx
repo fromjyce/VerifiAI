@@ -18,15 +18,15 @@ import {
 } from "lucide-react"
 import { type VerificationResult, getStatusColor, formatDate } from "@/lib/utils"
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 
-export function VerificationResults({
-  claim,
-  result,
-}: {
-  claim: string
-  result: VerificationResult
-}) {
+export function VerificationResults() {
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false)
+  const searchParams = useSearchParams()
+
+  // Decode the claim and result from the URL
+  const claim = decodeURIComponent(searchParams.get("claim") || "")
+  const result = JSON.parse(decodeURIComponent(searchParams.get("result") || "{}")) as VerificationResult
 
   const getVerdictIcon = () => {
     switch (result.status) {
@@ -286,4 +286,3 @@ export function VerificationResults({
     </div>
   )
 }
-
