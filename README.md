@@ -4,7 +4,7 @@
 
 VerifiAI is an advanced AI-driven fact-checking system that leverages multiple layers of verification to ensure accuracy and reliability. It continuously collects and processes data from trusted sources, performs claim analysis, and calculates a trust score based on consensus and credibility.
 
-🌍 Try VerifiAI live → VerifiAI Web App
+🌍 **Try VerifiAI live** → **[VerifiAI Web App](https://verifi-ai.vercel.app/)**  
 
 ## Key Features
 - ✅ **Improved Accuracy** in detecting AI-generated misinformation (**LLM + RAG + Neo4j**)
