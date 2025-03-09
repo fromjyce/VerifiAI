@@ -7,11 +7,12 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Search, Upload, Mic } from "lucide-react"
+import { Info, Search, Upload, Mic, X } from "lucide-react"
 
 export function ClaimForm() {
   const [claim, setClaim] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [showWarning, setShowWarning] = useState(true)
   const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -58,6 +59,28 @@ export function ClaimForm() {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardContent className="pt-6">
+        {showWarning && (
+          <div className="mb-4 bg-amber-50 border border-amber-200 rounded-lg p-4 shadow-sm flex items-start gap-3">
+            <Info className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
+            <div className="flex-1">
+              <p className="text-sm text-amber-800">
+                ⚠️ This page is currently a demonstration and is <strong>not connected to a backend</strong>. The
+                fact-checking results shown are for <strong>experience purposes only</strong> and
+                <strong> should not be considered accurate or verified</strong>. Please use discretion while
+                interpreting the information.
+              </p>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-6 w-6 text-amber-500 hover:text-amber-700 hover:bg-amber-100"
+              onClick={() => setShowWarning(false)}
+              aria-label="Dismiss warning"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Textarea
