@@ -4,6 +4,8 @@
 
 VerifiAI is an advanced AI-driven fact-checking system that leverages multiple layers of verification to ensure accuracy and reliability. It continuously collects and processes data from trusted sources, performs claim analysis, and calculates a trust score based on consensus and credibility.
 
+🌍 Try VerifiAI live → VerifiAI Web App
+
 ## Key Features
 - ✅ **Improved Accuracy** in detecting AI-generated misinformation (**LLM + RAG + Neo4j**)
 
@@ -119,6 +121,13 @@ http://localhost:3000
 | `/trust-score` | GET | Get Trust Score for a claim |
 | `/explanation` | GET | Get detailed verification analysis |
 
+
+---
+
+## Demo
+
+Watch the Demo Video:
+[![Watch the Demo](https://img.youtube.com/vi/bmbKE0b6Wgw/3.jpg)](https://youtu.be/bmbKE0b6Wgw)  
 
 ---
 
