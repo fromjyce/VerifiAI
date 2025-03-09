@@ -61,7 +61,7 @@ export function ChatbotInterface() {
   const generateBotResponse = (userInput: string): string => {
     const userInputLower = userInput.toLowerCase()
 
-    if (userInputLower.includes("covid") || userInputLower.includes("vaccine")) {
+    if (userInputLower.includes("covid") && userInputLower.includes("vaccine")) {
       return "Based on verified medical sources, COVID-19 vaccines have been thoroughly tested and are safe for most people. They do not cause infertility or alter your DNA. Would you like me to provide specific sources for this information?"
     }
 
@@ -71,6 +71,24 @@ export function ChatbotInterface() {
 
     if (userInputLower.includes("fact") || userInputLower.includes("check") || userInputLower.includes("verify")) {
       return "I'd be happy to help verify that claim. Please provide the specific statement you'd like me to fact-check, and I'll analyze it against our trusted sources."
+    }
+
+    // False claim examples
+    if (userInputLower.includes("earth is flat")) {
+      return "The claim that the Earth is flat is false. Scientific evidence overwhelmingly supports that the Earth is an oblate spheroid. Would you like more information on this?"
+    }
+
+    if (userInputLower.includes("5g spreads covid")) {
+      return "The claim that 5G technology spreads COVID-19 is false. COVID-19 is caused by a virus, and there is no scientific evidence linking it to 5G technology. Would you like more information on this?"
+    }
+
+    // True claim examples
+    if (userInputLower.includes("water boils at 100 degrees celsius")) {
+      return "The claim that water boils at 100 degrees Celsius at standard atmospheric pressure is true. This is a well-established scientific fact. Would you like more information on this?"
+    }
+
+    if (userInputLower.includes("humans need oxygen to survive")) {
+      return "The claim that humans need oxygen to survive is true. Oxygen is essential for cellular respiration and energy production in the human body. Would you like more information on this?"
     }
 
     return "I can help verify claims and provide reliable information. Could you provide a specific claim or topic you'd like me to check?"
