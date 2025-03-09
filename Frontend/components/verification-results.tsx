@@ -119,7 +119,7 @@ export function VerificationResults({
               </TabsList>
 
               <TabsContent value="evidence" className="space-y-4 pt-4">
-                {result.sources.map((source, index) => (
+                {result.sources && result.sources.map((source, index) => (
                   <div key={index} className="p-4 rounded-lg bg-card border">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-medium">{source.name}</h4>
@@ -176,7 +176,7 @@ export function VerificationResults({
 
               <TabsContent value="sources" className="pt-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {result.sources.map((source, index) => (
+                  {result.sources && result.sources.map((source, index) => (
                     <div key={index} className="p-4 rounded-lg bg-card border">
                       <h4 className="font-medium mb-1">{source.name}</h4>
                       <div className="flex items-center gap-2 mb-2">
