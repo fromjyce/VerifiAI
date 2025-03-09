@@ -22,10 +22,36 @@ export function ClaimForm() {
 
     // Simulate processing time before redirecting
     setTimeout(() => {
-      // In a real app, you'd send the claim to your backend
-      // For demo purposes, we'll encode the claim in the URL
-      const encodedClaim = encodeURIComponent(claim)
-      router.push(`/verify?claim=${encodedClaim}`)
+      // Simulate a random verification result for prototyping
+      const statuses = ["true", "false", "partially true", "unverifiable"]
+      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)]
+      const randomTrustScore = Math.floor(Math.random() * 100) + 1
+      const result = {
+        status: randomStatus,
+        trustScore: randomTrustScore,
+        explanation: "This is a simulated explanation for prototyping purposes.",
+        sources: [
+          {
+            name: "Source 1",
+            reliability: "High",
+            excerpt: "This is a simulated source excerpt.",
+            url: "https://example.com/source1",
+            type: "Article",
+          },
+          {
+            name: "Source 2",
+            reliability: "Medium",
+            excerpt: "This is another simulated source excerpt.",
+            url: "https://example.com/source2",
+            type: "Research Paper",
+          },
+        ],
+        lastUpdated: new Date().toISOString(),
+      }
+
+      // Encode the result in the URL for the verification results page
+      const encodedResult = encodeURIComponent(JSON.stringify(result))
+      router.push(`/verify?claim=${encodeURIComponent(claim)}&result=${encodedResult}`)
     }, 1000)
   }
 
